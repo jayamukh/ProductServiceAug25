@@ -1,6 +1,6 @@
-# ProductServiceAug25
+# products-api-springboot
 
-ProductServiceAug25 is a Spring Boot microservice that exposes REST endpoints to retrieve product data by calling a third-party API. It is designed to be resilient, scalable, and easily integrable with other services.
+products-api-springboot is a Spring Boot microservice that exposes REST endpoints to retrieve product data by calling a third-party API. It is designed to be resilient, scalable, and easily integrable with other services.
 
 > **Note:** This is an ongoing project. Features such as Resilience (Resilience4j), Caching (Spring Cache + Redis), and advanced Testing (JUnit 5, Spring Boot Test, WireMock) are planned but not yet implemented.
 
