@@ -25,7 +25,7 @@ products-api-springboot is a Spring Boot microservice that exposes REST endpoint
 
 ## Tech Stack
 
-- **Language:** Java 17
+- **Language:** Java 24
 - **Framework:** Spring Boot 3+
 - **HTTP Client:** RestTemplate
 - **Resilience (Planned):** Resilience4j (retry, circuit breaker)
@@ -36,7 +36,7 @@ products-api-springboot is a Spring Boot microservice that exposes REST endpoint
 
 ### Prerequisites
 
-- Java 17
+- Java 24
 - Maven 3.8+
 - (Optional, for future): Redis server for caching
 
