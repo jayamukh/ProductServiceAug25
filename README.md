@@ -114,7 +114,7 @@ ProductServiceAug25 can be tested using standard JUnit and integration testing t
 
 You can verify the API endpoints using Postman. For example, the following image shows a successful GET request to retrieve a product:
 
-![Testing with Postman](docs/images/postman-product-get.png)
+![Testing with Postman](./API_Testing.png)
 
 > Example:  
 > GET `http://localhost:8080/products/3`  
