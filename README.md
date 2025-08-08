@@ -43,8 +43,8 @@ products-api-springboot is a Spring Boot microservice that exposes REST endpoint
 ### Build
 
 ```bash
-git clone https://github.com/jayamukh/ProductServiceAug25.git
-cd ProductServiceAug25
+git clone https://github.com/jayamukh/products-api-springboot.git
+cd products-api-springboot
 mvn clean install
 ```
 
@@ -55,7 +55,7 @@ mvn clean install
 mvn spring-boot:run
 
 # Or, run the built jar
-java -jar target/product-service-aug25-*.jar
+java -jar target/products-api-springboot-*.jar
 ```
 
 ## Configuration
@@ -108,7 +108,7 @@ GET /api/products/{productId}
 
 ## Testing
 
-ProductServiceAug25 can be tested using standard JUnit and integration testing tools, as well as API testing tools such as Postman.
+products-api-springboot can be tested using standard JUnit and integration testing tools, as well as API testing tools such as Postman.
 
 ### Testing with Postman
 
