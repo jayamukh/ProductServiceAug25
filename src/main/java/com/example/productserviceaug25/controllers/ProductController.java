@@ -1,10 +1,14 @@
 package com.example.productserviceaug25.controllers;
 
+import com.example.productserviceaug25.Exceptions.ProductNotFoundException;
 import com.example.productserviceaug25.Models.Product;
 import com.example.productserviceaug25.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +25,8 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
-    public Product getSingleProduct(@PathVariable Long productId) {
+    public Product getSingleProduct(@PathVariable Long productId) throws ProductNotFoundException {
+
         return productService.getSingleProduct(productId);
     }
 
@@ -45,5 +50,14 @@ public class ProductController {
     @DeleteMapping()
     public void deleteProduct(@RequestBody Product product) {
         productService.deleteProduct(product.getId());
+    }
+
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<String> handleProductNotFoundException() {
+
+        return new ResponseEntity<>(
+                "Product Not Found. Please Try Again",
+                HttpStatus.NOT_FOUND);
     }
 }

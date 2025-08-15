@@ -1,6 +1,7 @@
 package com.example.productserviceaug25.Service;
 
 import com.example.productserviceaug25.DTOs.FakeStoreProductDto;
+import com.example.productserviceaug25.Exceptions.ProductNotFoundException;
 import com.example.productserviceaug25.Models.Category;
 import com.example.productserviceaug25.Models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +36,19 @@ public class FakeStoreProductService implements ProductService {
     }
 
     @Override
-    public Product getSingleProduct(Long id) {
+    public Product getSingleProduct(Long id) throws ProductNotFoundException {
 
         ResponseEntity<FakeStoreProductDto> responseEntity =
                 restTemplate.getForEntity("https://fakestoreapi.com/products/1" + id, FakeStoreProductDto.class);
 
 
-        return convertToProductDTO(responseEntity.getBody());
+
+        FakeStoreProductDto dto =   responseEntity.getBody();
+        if(dto == null) {
+            throw new ProductNotFoundException(id);
+        }
+        return convertToProductDTO(dto);
+       // throw new RuntimeException("Something went wrong");
     }
 
     @Override
@@ -61,7 +68,7 @@ public class FakeStoreProductService implements ProductService {
 
     private Product convertToProductDTO( FakeStoreProductDto dto )
     {
-        if(dto != null) {
+        //if(dto != null) {
             Product product = new Product();
             product.setId(dto.getId());
             product.setTitle(dto.getTitle());
@@ -73,7 +80,7 @@ public class FakeStoreProductService implements ProductService {
             category.setTitle(dto.getCategory());
             product.setCategory(category);
             return product;
-        }
-        return null;
+        //}
+       // return null;
     }
 }
